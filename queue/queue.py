@@ -9,10 +9,14 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
-   
+
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!
 """
+# 3. When using a queue, the difference is adding a tail.
+# An array can simply append the element to the last instance, whereas in a linked list
+# the "last element" would have to be updated to point to the "new last element", and
+# the "new last element" would have to point to None
 from singly_linked_list import LinkedList
 
 # Array
