@@ -10,6 +10,9 @@ return elements in Last In First Out order.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
 """
+#  3. When using a Stack, the difference is removing the head.
+#  An array can pop the element at the first instance, whereas in a linked list
+# other elements main be chained to the first element and therefore those elements will have to be updated 
 from singly_linked_list import LinkedList
 
 # Array: 
