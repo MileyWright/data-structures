@@ -27,7 +27,14 @@ class DoublyLinkedList:
     the old head node's previous pointer accordingly.
     """
     def add_to_head(self, value):
-        pass
+        self.length += 1
+        if self.head is None:
+            self.head = ListNode(value)
+            self.tail = self.head
+        else:
+            new_node = ListNode(value, next=self.head)
+            self.head.prev = new_node
+            self.head = new_node
         
     """
     Removes the List's current head node, making the
@@ -35,7 +42,17 @@ class DoublyLinkedList:
     Returns the value of the removed Node.
     """
     def remove_from_head(self):
-        pass
+        if self.head is None:
+            return None
+        else:
+            self.length -= 1
+            value = self.head.value
+            self.head = self.head.next
+            if self.head is None:
+                self.tail = None
+            else:
+                self.head.prev = None
+            return value
             
     """
     Wraps the given value in a ListNode and inserts it 
@@ -43,15 +60,31 @@ class DoublyLinkedList:
     the old tail node's next pointer accordingly.
     """
     def add_to_tail(self, value):
-        pass
-            
+        if self.tail is None:
+            self.add_to_head(value)
+        else:
+            self.length += 1
+            new_tail = ListNode(value, prev=self.tail)
+            self.tail.next = new_tail
+            self.tail = new_tail
+    
     """
     Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.
     Returns the value of the removed Node.
     """
     def remove_from_tail(self):
-        pass
+        if self.tail is None:
+            return None
+        else:
+            self.length -= 1
+            value = self.tail.value
+            self.tail = self.tail.prev
+            if self.tail is None:
+                self.head = None
+            else:
+                self.tail.next = None
+            return value
             
     """
     Removes the input node from its current spot in the 
