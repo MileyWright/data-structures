@@ -91,25 +91,43 @@ class DoublyLinkedList:
     List and inserts it as the new head node of the List.
     """
     def move_to_front(self, node):
-        pass
+        self.add_to_head(node.value)
+        self.delete(node)
         
     """
     Removes the input node from its current spot in the 
     List and inserts it as the new tail node of the List.
     """
     def move_to_end(self, node):
-        pass
+        self.add_to_tail(node.value)
+        self.delete(node)
 
     """
     Deletes the input node from the List, preserving the 
     order of the other elements of the List.
     """
     def delete(self, node):
-        pass
+        if node.prev is None:
+            self.remove_from_head()
+        elif node.next is None:
+            self.remove_from_tail()
+        else:
+            self.length -= 1
+            node.prev.next = node.next
+            node.next.prev = node.prev
 
     """
     Finds and returns the maximum value of all the nodes 
     in the List.
     """
     def get_max(self):
-        pass
+        if self.head is None:
+            return None
+        else:
+            current = self.head
+            max_value = current.value
+            while current is not None:
+                if current.value > max_value:
+                    max_value = current.value
+                current = current.next
+            return max_value
