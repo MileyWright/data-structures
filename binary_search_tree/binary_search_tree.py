@@ -19,17 +19,17 @@ class BSTNode:
     def insert(self, value):
         cur_node = self.value
         # start at root and loop until 'cur_node' is None
-            # if 'value' <= 'cur_node'
-                # if 'cur_node.left' is None
-                    # insert our value!
-                # else
-                    # go left (update 'cur_node' to be 'cur_node.left')
-            # elif 'value' > 'cur_node'
-                # if 'cur_node.right' is None
-                    # insert our value!
-                # else
-                    # go right (update 'cur_node' to be 'cur_node.right')
-        pass
+        if value <= cur_node: # if 'value' <= 'cur_node'
+            if self.left is None: # if 'cur_node.left' is None
+                self.left = BSTNode(value) # insert our value!
+            else: # else
+                self.left.insert(value) # go left (update 'cur_node' to be 'cur_node.left')
+        elif value > cur_node: # elif 'value' > 'cur_node'
+            if self.right is None: # if 'cur_node.right' is None
+                self.right = BSTNode(value) # insert our value!
+            else: # else
+                self.right.insert(value)# go right (update 'cur_node' to be 'cur_node.right')
+
 
 
     # Return True if the tree contains the value
