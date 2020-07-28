@@ -116,3 +116,19 @@ class LinkedList:
             # update the current node to the next node in the list
             current = current.get_next()
         return max_value
+
+# How do you reverse a singly linked list without recursion?
+# You may not store the list, or it's values, in another data structure
+    def reverse_ll(self):
+
+        cur_node = self.head
+        next_node = cur.next
+        # head points to None
+        cur_node.set_next(None)
+        self.tail = cur_node
+        while cur_node is not None:
+            prev_node = cur_node
+            cur_node = next_node
+            next_node = cur_node.get_next()
+            cur_node.set_next(prev_node)
+        self.head = cur_node
