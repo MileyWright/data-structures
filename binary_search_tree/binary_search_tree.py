@@ -19,12 +19,12 @@ class BSTNode:
     def insert(self, value):
         cur_node = self.value
         # start at root and loop until 'cur_node' is None
-        if value <= cur_node: # if 'value' <= 'cur_node'
+        if value < cur_node: # if 'value' <= 'cur_node'
             if self.left is None: # if 'cur_node.left' is None
                 self.left = BSTNode(value) # insert our value!
             else: # else
                 self.left.insert(value) # go left (update 'cur_node' to be 'cur_node.left')
-        elif value > cur_node: # elif 'value' > 'cur_node'
+        elif value >= cur_node: # elif 'value' > 'cur_node'
             if self.right is None: # if 'cur_node.right' is None
                 self.right = BSTNode(value) # insert our value!
             else: # else
@@ -40,7 +40,16 @@ class BSTNode:
             # 2. < we go left
             # 3. > we go right
             # 4. if cant go left/right (not found, return False)
-        pass
+        if self.value == target:
+            return True
+        elif target < self.value:
+            if self.left is None:
+                return False
+            return self.left.contains(target)
+        elif target > self.value:
+            if self.right is None:
+                return False
+            return self.right.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
