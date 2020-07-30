@@ -31,7 +31,6 @@ class BSTNode:
                 self.right.insert(value)# go right (update 'cur_node' to be 'cur_node.right')
 
 
-
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
@@ -66,7 +65,7 @@ class BSTNode:
         if self.right is not None: # if it's not none on the right side
             self.right.for_each(fn) # then CALL the function, and pass in fn
     
-    # STRETCH
+    # Stretch Goals -------------------------
     def delete(self):
         pass
     # Part 2 -----------------------
